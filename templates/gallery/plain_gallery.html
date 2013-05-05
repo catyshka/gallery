@@ -1,0 +1,18 @@
+<div class="plain-gallery">
+            {% for image in gallery.picture_set.all %}
+                <div class="image-block">
+                    <h4>{{photo.title }}</h4>
+                    <a href="{{ image.image.url }}" class="colorbox-image">
+                        <img 
+                            class="plain-gallery-photo"
+                            src="{{ image.image.url }}"
+                            alt="{{ image.title }}"
+                            title="{{ image.title}}" 
+                        />
+                    </a>
+                     {% if forloop.counter|divisibleby:2 %} 
+                        <div class="clear"/>
+                    {% endif %}
+                </div>
+            {% endfor %}
+</div>
