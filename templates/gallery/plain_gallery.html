@@ -1,7 +1,8 @@
 <div class="plain-gallery">
             {% for group in gallery.picturegroup_set.all %}
             	<br/>
-            	<hr class="pictures-group-separator"/><div class="pictures-group-title">{{ group.name }}</div>
+            	<!-- <hr class="pictures-group-separator"/><div class="pictures-group-title">{{ group.name }}</div>  -->
+            	<div class='pictures-group-separator-block'></div>
             	<div class='pictures-group'>
             	{% for image in group.picture_set.all %}
 	                <div class="image-block">
