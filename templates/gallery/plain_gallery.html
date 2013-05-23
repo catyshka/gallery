@@ -1,18 +1,24 @@
 <div class="plain-gallery">
-            {% for image in gallery.picture_set.all %}
-                <div class="image-block">
-                    <h4>{{photo.title }}</h4>
-                    <a href="{{ image.image.url }}" class="colorbox-image" rel="lightbox[gallery1]">
-                        <img 
-                            class="plain-gallery-photo"
-                            src="{{ image.image.url }}"
-                            alt="{{ image.title }}"
-                            title="{{ image.title}}" 
-                        />
-                    </a>
+            {% for group in gallery.picturegroup_set.all %}
+            	<br/>
+            	<hr class="pictures-group-separator"/><div class="pictures-group-title">{{ group.name }}</div>
+            	<div class='pictures-group'>
+            	{% for image in group.picture_set.all %}
+	                <div class="image-block">
+	                    <h4>{{ image.title }}</h4>
+	                    <a href="{{ image.image.url }}" class="colorbox-image" rel="lightbox[gallery1]">
+	                        <img 
+	                            class="plain-gallery-photo"
+	                            src="{{ image.image.url }}"
+	                            alt="{{ image.title }}"
+	                            title="{{ image.title}}" 
+	                        />
+	                    </a>
+	                </div>
+	                {% if forloop.counter|divisibleby:2 %}
+	                     <!-- >div class="clear"></div-->
+	                {% endif %}
+                {% endfor %}
                 </div>
-                {% if forloop.counter|divisibleby:2 %}
-                     <div class="clear"></div>
-                {% endif %}
             {% endfor %}
 </div>
