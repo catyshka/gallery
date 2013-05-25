@@ -1,0 +1,21 @@
+<script type="text/javascript">
+$(function(){
+	$('#myGallery').galleryView();
+});
+</script>
+<div class="wg-gallery-wrapper">
+	<ul id="myGallery">
+	    {% for group in gallery.picturegroup_set.all %}
+			 {% for image in group.picture_set.all %}
+	              <li> 
+	                   <img 
+	                            class="gallery-photo"
+	                            src="{{ image.image.url }}"
+	                            alt="{{ image.title }}"
+	                            title="{{ image.title}}" 
+	                     />
+	              </li>
+	        {% endfor %}
+	    {% endfor %}
+	</ul>
+</div>
