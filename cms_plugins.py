@@ -6,7 +6,7 @@ from django.utils.translation import ugettext as _
 class CMSGalleryPlugin(CMSPluginBase):
     model = GalleryPlugin
     name = _("Gallery")
-    render_template = "gallery/gallery.html"
+    render_template = "gallery/jw_gallery.html"
 
     def render(self, context, instance, placeholder):
         context.update({
@@ -25,9 +25,9 @@ class CMSPlainGalleryPlugin(CMSPluginBase):
 
     def render(self, context, instance, placeholder):
         context.update({
-            'gallery':instance.gallery,
-            'object':instance,
-            'placeholder':placeholder
+            'gallery': instance.gallery,
+            'object': instance,
+            'placeholder': placeholder
         })
         return context
 
